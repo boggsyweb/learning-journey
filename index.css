@@ -1,0 +1,248 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    list-style: none;
+    text-decoration: none;
+    transition: 300ms;
+}
+
+ html { 
+    /*color-scheme: dark light;*/
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Mulish', sans-serif;
+
+}
+img, picture, svg, video, a{
+    display: block;
+    max-width: 100%;
+}
+a {
+    color: black;
+}
+.current-page {
+    text-decoration: underline solid 1px;
+}
+/*** Header ***/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    font-family: 'Amatic SC', sans-serif;
+    margin: auto;
+    padding: .5em 1em;
+  }
+
+  .animation .text-cont {
+    position: relative;
+    display: flex;
+    font-size: clamp(2rem, 4.5vw, 5rem);  
+  }
+  
+  .animation .line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 3px;
+    width: 100%;
+    background-color: black;
+    transform-origin: 0.5 0;
+  }
+  
+  .animation .icon {
+    width: 1.5em;
+    margin: 0 .1em;
+  }
+  
+  .animation .letters {
+    opacity: 0;
+  }
+
+  .nav-mobile {
+    font-size: max(1.5rem, 1.5vw);
+  }
+  /*** Media query +675px ***/
+  ul {
+    display: none;
+  }
+/*** home page ***/
+.hero {
+    background: url('bloghero.png');
+    background-size: cover;
+    color: whitesmoke;   
+}
+.hero-text {
+    text-align: justify;
+    padding: 5em .5em 1em;
+}
+
+.hero-header {
+    margin-bottom: .1em;
+    font-size: clamp(1.8rem, 2.5vw, 2.8rem); 
+    font-weight: 700;
+}
+.hero-subtext {
+     padding: 0 .2em .5em .2em; 
+     font-size: clamp(1rem, 2.5vw, 2rem); 
+    }
+.blog:nth-child(n+4) {
+    display: none;
+}
+.blog-cont {
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(323px, 1fr));
+    gap: 1.5rem;
+    padding: 2em 1.5em;
+    
+}
+.date {
+    font-size: clamp(.8rem, 2.5vw, 1.2rem); 
+    padding-top: .7em;
+}
+.blog-title {
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    font-weight: 600;
+    padding: .3em 0;
+}
+.body {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    text-align: justify;
+}
+.read-more {
+    text-align: center;
+    font-size: max(.75rem, .75vw);
+    color: black;
+    font-weight: 600;
+    margin-bottom: 2em;
+    cursor: pointer;
+}
+.read-more:focus,
+.read-more:hover {
+    opacity: .5;
+}
+
+/*** about page ***/
+.about-intro, .intro-top {
+    display: flex;
+    flex-direction: column;
+    padding: 1em .5em;
+    gap: 1em;
+}
+
+ .about-intro { 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 
+        "topper topper topper"
+        "sub1 sub1 sub1"
+        "p2 p2 p2"
+        "sub2 sub2 sub2"
+        "p3 p3 p3" ;   
+    gap: 1em 0;   
+    padding: 1em .5em;   
+}
+.intro-top {grid-area: topper;}
+.sub1 {grid-area: sub1;}
+.p2 {grid-area: p2;}
+.sub2 {grid-area: sub2;}
+.p3 {grid-area: p3;}
+
+.profile-img {
+    border-radius: 100%;
+    max-width: 11.25em;
+}
+.about-header {
+    font-weight: 600;
+    font-size: clamp(1.5rem, 3vw, 2.8rem);  
+    margin-bottom: .4em; 
+}
+.about-intro p {
+    font-size:  clamp(1rem, 2.5vw, 1.1rem);
+    text-align: justify;
+}
+.about-intro h4 {
+    font-weight: 600;
+    font-size: clamp(1rem, 3vw, 1.4rem);
+}
+.recent-posts {
+    text-align: center;
+    font-weight: 600;
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    padding-top: 1.3em;
+}
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: whitesmoke;
+    font-size: clamp(.8rem, 3vw, 1.2rem);
+    padding: 1em 0;
+}
+footer a {
+    display: inline;
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    padding-left: .7em;
+    color: whitesmoke;
+}
+@media (min-width: 675px) {
+    
+      ul {
+        display: flex;
+      } 
+    li {
+        font-size: clamp(2rem, 3.5vw, 2.8rem);
+        padding-left: .5em;  
+    }
+  li:hover {
+    opacity: .5;
+  }
+      .nav-mobile {
+        display: none;
+      }
+    .hero-text {
+        padding: 15em 0 2em 1em;
+    }
+      .hero-header {
+        margin-bottom: .3em;    
+    }
+    .hero-subtext {
+        width: 50%;
+    }
+    .blog:nth-child(n+4) {
+        display: grid;
+    }
+    .blog-title {
+        padding-bottom: .5em;
+    }
+    .read-more {
+        font-size: max(1.5rem, 1.5vw);
+    } 
+.about-intro {
+    margin: 2.5em 4em;
+}
+
+.intro-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2.5em;   
+}
+
+
+
+
+@media (min-width:1410px) {
+    .blog-cont {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
