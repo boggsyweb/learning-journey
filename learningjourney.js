@@ -35,4 +35,16 @@ anime.timeline({})
   
 let date = (new Date()).getFullYear()
 document.getElementById('year').innerHTML = date
-  
+
+let hamburger = document.getElementById('hamburger')
+
+hamburger.addEventListener('click', dropDown)
+
+function dropDown() {
+  const x = document.getElementById("nav-links");
+  if (x.style.display === "flex") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "flex";
+  }
+}
