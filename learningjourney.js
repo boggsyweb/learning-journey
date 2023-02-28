@@ -1,3 +1,4 @@
+// **runs header animation**
 anime.timeline({})
   .add({
     targets: '.animation .line',
@@ -32,10 +33,12 @@ anime.timeline({})
     duration: 600,
     offset: '-=600'
   })
-  
+
+  // **automatically updates year in footer**
 let date = (new Date()).getFullYear()
 document.getElementById('year').innerHTML = date
 
+// **dropdown**
 let hamburger = document.getElementById('hamburger')
 
 hamburger.addEventListener('click', dropDown)

@@ -19,7 +19,7 @@ body {
     font-family: 'Mulish', sans-serif;
 
 }
-img, picture, svg, video, a{
+img, picture, svg, video {
     display: block;
     max-width: 100%;
 }
@@ -95,7 +95,7 @@ header {
   }
 /*** home page ***/
 .hero {
-    background: url('bloghero.png');
+    background: url('images/ponte25deabril.jpg');
     background-size: cover;
     color: whitesmoke;   
 }
@@ -113,6 +113,15 @@ header {
      padding: 0 .2em .5em .2em; 
      font-size: clamp(1rem, 2.5vw, 2rem); 
     }
+.photo-credit {
+    text-align: right;
+    color: whitesmoke;
+    font-size: clamp(.4rem, 2.5vw, .8rem);
+    margin-right: .5em;
+}
+.photo-credit a {
+    color: whitesmoke;   
+}
 .blog:nth-child(n+4) {
     display: none;
 }
@@ -183,6 +192,9 @@ header {
     font-weight: 600;
     font-size: clamp(1.5rem, 3vw, 2.8rem);  
     margin-bottom: .4em; 
+}
+.p1 a {
+    text-decoration: underline 2px dotted black;
 }
 .about-intro p {
     font-size:  clamp(1rem, 2.5vw, 1.1rem);
