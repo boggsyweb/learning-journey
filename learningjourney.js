@@ -1,3 +1,5 @@
+import { journalArray } from './data.js'
+
 // **runs header animation**
 
 anime.timeline({})
