@@ -275,6 +275,10 @@ header {
 .contact-info h3 {
     margin: 0 auto;
 }
+.contact-info a {
+    color: #fcf3f5;
+}
+/*** footer ***/
 footer {
     display: flex;
     justify-content: space-around;
