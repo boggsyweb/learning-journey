@@ -1,4 +1,4 @@
-import { journalArray } from './data.js'
+import { journals } from './data.js'
 
 // **runs header animation**
 
@@ -38,11 +38,6 @@ anime.timeline({})
   })
 
 
-
-  // **automatically updates year in footer**
-let date = (new Date()).getFullYear()
-document.getElementById('year').innerHTML = date
-
 // **dropdown**
 let hamburger = document.getElementById('hamburger')
 
@@ -56,3 +51,27 @@ function dropDown() {
     x.style.display = "flex";
   }
 }
+
+const journalCont = document.getElementById('journal-cont')
+
+function displayJournal() {
+  let journalEntry = ""
+  for(let i = 0; i < journals.length; i++) {
+    journalEntry += `
+    <div class="blog">
+        <img class="blog-image" src=${journals[i].image} alt="picture of a Japanese Restaurant app">
+        <p class="date">${journals[i].date}</p>
+        <h3 class="blog-title">${journals[i].name}</h3>
+        <p class="body">${journals[i].intro}</p>
+    </div>
+`
+  }
+ 
+  journalCont.innerHTML = journalEntry
+}
+
+displayJournal()
+  
+// **automatically updates year in footer**
+  let date = (new Date()).getFullYear()
+  document.getElementById('year').innerHTML = date
