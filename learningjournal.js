@@ -60,7 +60,7 @@ function displayJournal() {
   for(let i = 0; i < journals.length; i++) {
     journalEntry += `
     <div class="blog">
-        <img class="blog-image" src=${journals[i].image}>
+        <a href="learningjournalprojects.html"><img class="blog-image" src=${journals[i].image}></a>
         <p class="date">${journals[i].date}</p>
         <h3 class="blog-title">${journals[i].name}</h3>
         <p class="body">${journals[i].intro}</p>

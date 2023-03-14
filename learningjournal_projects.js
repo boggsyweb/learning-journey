@@ -62,16 +62,15 @@ function displayProjects() {
         projectImg += `
         <div class="gallery-cont">
         <img class="blog-img" src=${journals[i].image}>
-        <button class="read-more">Read more</button>
+        <button class="open-project"><i class="fa-solid fa-arrow-down"></i></button>
         <div class="project-el">
         <div class="project-inner">
         <p class="date">${journals[i].date}</P>
         <h2 class="blog-title">${journals[i].name}</h2>
         <p class="description">${journals[i].description}</p>
-        <p class="change"><span class="bold">Things I would change:</span> ${journals[i].change}</p>
-        <a href=${journals[i].scrim} target="blank">See the Scrim</a>
-        <a href=${journals[i].netlify} target="blank">See the Website</a>
-        <button class="close-btn">Close</btn>
+        <p class="change"><span class="bold">Things to improve:</span> ${journals[i].change}</p>
+        <a id="scrimba" href=${journals[i].scrim} target="blank"><i class="fa-solid fa-code"></i> Scrimba</a>
+        <a id="netlify" href=${journals[i].netlify} target="blank"><i class="fa-solid fa-laptop"></i> Netlify</a>
         </div>
         </div>
         </div>
@@ -80,8 +79,7 @@ function displayProjects() {
 }
 projectsGallery.innerHTML = projectImg
 
-const readMoreButtons = document.querySelectorAll('.read-more');
-const closeButtons = document.querySelectorAll(".close-btn");
+const readMoreButtons = document.querySelectorAll('.open-project');
 
 
 function disableOtherButtons() {
@@ -101,22 +99,17 @@ function enableAllButtons() {
 for (let i = 0; i < readMoreButtons.length; i++) {
   readMoreButtons[i].addEventListener('click', function() {
     const projectEl = this.nextElementSibling;
-    if (projectEl.style.display === 'block') {
-      projectEl.style.display = 'none';
+    if (projectEl.classList.contains('show')) {
+      projectEl.classList.remove('show')
       enableAllButtons();
     } else {
-      projectEl.style.display = 'block';
+      projectEl.classList.add('show')
       disableOtherButtons.call(this);
     }
+    this.classList.toggle('rotated');
+
   });
 }
-for (let i = 0; i < closeButtons.length; i++) {
-    closeButtons[i].addEventListener("click", function () {
-      const projectEl = this.closest(".project-el");
-      projectEl.style.display = "none";
-      enableAllButtons();
-    });
-  }
 }
 
 displayProjects()
