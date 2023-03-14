@@ -51,15 +51,16 @@ function dropDown() {
     x.style.display = "flex";
   }
 }
-
 const journalCont = document.getElementById('journal-cont')
+
+//** Render pictures and captions**//
 
 function displayJournal() {
   let journalEntry = ""
   for(let i = 0; i < journals.length; i++) {
     journalEntry += `
     <div class="blog">
-        <img class="blog-image" src=${journals[i].image} alt="picture of a Japanese Restaurant app">
+        <img class="blog-image" src=${journals[i].image}>
         <p class="date">${journals[i].date}</p>
         <h3 class="blog-title">${journals[i].name}</h3>
         <p class="body">${journals[i].intro}</p>
@@ -71,7 +72,8 @@ function displayJournal() {
 }
 
 displayJournal()
-  
-// **automatically updates year in footer**
+
+
+// **automatically updates year in footer (based on user's computer)**
   let date = (new Date()).getFullYear()
   document.getElementById('year').innerHTML = date
