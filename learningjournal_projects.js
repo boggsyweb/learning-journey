@@ -58,61 +58,59 @@ const projectsGallery = document.querySelector('.projects-gallery')
 
 function displayProjects() {
     let projectImg = ""
-    for(let i = 0; i < journals.length; i++) {
-        projectImg += `
-        <div class="gallery-cont">
-        <img class="blog-img" src=${journals[i].image}>
-        <button class="open-project"><i class="fa-solid fa-arrow-down"></i></button>
-        <div class="project-el">
-        <div class="project-inner">
-        <p class="date">${journals[i].date}</P>
-        <h2 class="blog-title">${journals[i].name}</h2>
-        <p class="description">${journals[i].description}</p>
-        <p class="change"><span class="bold">Things to improve:</span> ${journals[i].change}</p>
-        <a id="scrimba" href=${journals[i].scrim} target="blank"><i class="fa-solid fa-code"></i> Scrimba</a>
-        <a id="netlify" href=${journals[i].netlify} target="blank"><i class="fa-solid fa-laptop"></i> Netlify</a>
-        </div>
-        </div>
-        </div>
-        `
-        
-}
-projectsGallery.innerHTML = projectImg
-
-const readMoreButtons = document.querySelectorAll('.open-project');
-
-
-function disableOtherButtons() {
-  for (let i = 0; i < readMoreButtons.length; i++) {
-    if (readMoreButtons[i] !== this) {
-      readMoreButtons[i].disabled = true;
+    for (let journal of journals) {
+      projectImg += `
+      <div class="gallery-cont">
+          <img class="blog-img" src=${journal.image}>
+          <button class="open-project"><i class="fa-solid fa-arrow-down"></i></button>
+          <div class="project-el">
+              <div class="project-inner">
+                  <p class="date">${journal.date}</P>
+                  <h2 class="blog-title">${journal.name}</h2>
+                  <p class="description">${journal.description}</p>
+                  <p class="change"><span class="bold">Things to improve:</span> ${journal.change}</p>
+                  <a id="scrimba" href=${journal.scrim} target="blank"><i class="fa-solid fa-code"></i> Scrimba</a>
+                  <a id="netlify" href=${journal.netlify} target="blank"><i class="fa-solid fa-laptop"></i> Netlify</a>
+              </div>
+          </div>
+      </div>
+      `
+    }
+    
+    projectsGallery.innerHTML = projectImg;
+  
+    const readMoreButtons = document.querySelectorAll('.open-project');
+  
+    function disableOtherButtons() {
+      for (let button of readMoreButtons) {
+        if (button !== this) {
+          button.disabled = true;
+        }
+      }
+    }
+  
+    function enableAllButtons() {
+      for (let button of readMoreButtons) {
+        button.disabled = false;
+      }
+    }
+  
+    for (let button of readMoreButtons) {
+      button.addEventListener('click', function() {
+        const projectEl = this.nextElementSibling;
+        if (projectEl.classList.contains('show')) {
+          projectEl.classList.remove('show')
+          enableAllButtons();
+        } else {
+          projectEl.classList.add('show')
+          disableOtherButtons.call(this);
+        }
+        this.classList.toggle('rotated');
+      });
     }
   }
-}
-
-function enableAllButtons() {
-  for (let i = 0; i < readMoreButtons.length; i++) {
-    readMoreButtons[i].disabled = false;
-  }
-}
-
-for (let i = 0; i < readMoreButtons.length; i++) {
-  readMoreButtons[i].addEventListener('click', function() {
-    const projectEl = this.nextElementSibling;
-    if (projectEl.classList.contains('show')) {
-      projectEl.classList.remove('show')
-      enableAllButtons();
-    } else {
-      projectEl.classList.add('show')
-      disableOtherButtons.call(this);
-    }
-    this.classList.toggle('rotated');
-
-  });
-}
-}
-
-displayProjects()
+  
+  displayProjects();
 
 
 

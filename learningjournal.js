@@ -57,13 +57,13 @@ const journalCont = document.getElementById('journal-cont')
 
 function displayJournal() {
   let journalEntry = ""
-  for(let i = 0; i < journals.length; i++) {
+  for (let journal of journals) {
     journalEntry += `
     <div class="blog">
-        <a href="learningjournalprojects.html"><img class="blog-image" src=${journals[i].image}></a>
-        <p class="date">${journals[i].date}</p>
-        <h3 class="blog-title">${journals[i].name}</h3>
-        <p class="body">${journals[i].intro}</p>
+        <a href="learningjournalprojects.html"><img class="blog-image" src=${journal.image}></a>
+        <p class="date">${journal.date}</p>
+        <h3 class="blog-title">${journal.name}</h3>
+        <p class="body">${journal.intro}</p>
     </div>
 `
   }
@@ -72,7 +72,6 @@ function displayJournal() {
 }
 
 displayJournal()
-
 
 // **automatically updates year in footer (based on user's computer)**
   let date = (new Date()).getFullYear()
